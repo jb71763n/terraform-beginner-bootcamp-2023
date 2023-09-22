@@ -133,8 +133,8 @@ You can also set env vars in the `.gitpod.yml` but this can only contain non-sen
 
 AWS CLI is installed for thwe project via the bash script [`./bin/install_AWS_cli`](./bin/install_AWS_cli)
 
-[Getting Started Install (AWS CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-[AWS CLI EnvVars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+- [Getting Started Install (AWS CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [AWS CLI EnvVars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 
 We can check if our AWS credentials are configured correctly by using the following AWS CLI command:
 ```sh
@@ -148,6 +148,61 @@ If it is successful, you should see a json payload return that looks liek this:
     "Arn": "arn:aws:iam::0435783!!!!!:user/terraforrm-beginner-bootcamp"
 }
 ```
+
 We'll need to generate AWS CLI credentials IAM user in order to use the AWS CLI
-[Getting Started with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
-[Managing Access Keys in the IAM Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
+
+- [Getting Started with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
+- [Managing Access Keys in the IAM Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
+
+## Terraform Basics
+
+### Terraform registry
+
+Terraform sources their providers and modules from the Terraform registry which is located at [Terraform Registry](https://registry.terraform.io/)
+
+- **Providers** is an interface to APIs that weill allow you to create resources in terraform.
+- **Modules** are a way to make large amounts of terraform code modular, portable and sharable.
+
+#### Providers
+
+Terraform registry providers are located at: registry.terraform.io
+
+- [Random Provider Documentation](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
+- [AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+
+### Terraform Console
+
+We can see a list of all the Terraform commands by simply typing 'terraform'
+
+**Terraform commands**
+
+- terraform init : initializes a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration. Downloads the binaries for the terraform providers used in the project
+- terraform plan : creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. Generates a changeset about the state of the infrastucture that will be changed. This canb be output to an apply but often outputting is ignored. 
+- terraform apply : executes the actions proposed in a Terraform plan. Should prompt for yes or no. 
+-- terraform apply --auto-approve : executes the actions proposed in a Terraform plan without manual approval needed.
+- terraform destroy : destroy all remote objects managed by a particular Terraform configuration.
+
+### Terraform Lock Files
+
+`.terraform.lock.hcl` contains the locked versioning for the provider or modules that should be used with this project.
+
+The Terraform lock file **should be committed** to your version control system (VCS) eg. Github
+
+### Terraform State Files
+
+`.terraform.tfstate` contains information about the current state of your infrastructure. This file **should not be committed** to your VCS.
+
+This file can contain sensitive data.
+
+If you lose this file, you lose knowing the state of your infrastructure.
+
+`.terraform.tfdtate.backup` is the previous state file
+
+### Terraform Directory
+
+`.terraform` is the directory that contains the terraform files
+
+
+
+
