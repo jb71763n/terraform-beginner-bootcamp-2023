@@ -177,11 +177,12 @@ We can see a list of all the Terraform commands by simply typing 'terraform'
 
 **Terraform commands**
 
-- terraform init : initializes a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration. Downloads the binaries for the terraform providers used in the project
-- terraform plan : creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. Generates a changeset about the state of the infrastucture that will be changed. This canb be output to an apply but often outputting is ignored. 
-- terraform apply : executes the actions proposed in a Terraform plan. Should prompt for yes or no. 
--- terraform apply --auto-approve : executes the actions proposed in a Terraform plan without manual approval needed.
-- terraform destroy : destroy all remote objects managed by a particular Terraform configuration.
+- **terraform init** : initializes a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration. Downloads the binaries for the terraform providers used in the project
+- **terraform plan** : creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure. Generates a changeset about the state of the infrastucture that will be changed. This canb be output to an apply but often outputting is ignored. 
+- **terraform apply** : executes the actions proposed in a Terraform plan. Should prompt for yes or no. 
+    - terraform apply --auto-approve : executes the actions proposed in a Terraform plan without manual approval needed.
+- **terraform destroy** : destroy all remote objects managed by a particular Terraform configuration.
+    - terraform destroy --auto-approve : destroy all remote objects managed by a particular Terraform configuration without asking for approval
 
 ### Terraform Lock Files
 
@@ -203,6 +204,21 @@ If you lose this file, you lose knowing the state of your infrastructure.
 
 `.terraform` is the directory that contains the terraform files
 
+There should only be a single terrafrom provider block
 
+```hcl
+terraform {
+  required_providers {
+    random = {
+      source = "hashicorp/random"
+      version = "3.5.1"
+    }
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.17.0"
+    }
+  }
+}
+```
 
 
