@@ -1,5 +1,11 @@
 # Terraform Beginner Bootcamp 2023
 
+## Project Findings
+
+### Isssue 11
+Found that the random provider needed to be set to lowercase and numeric only in order to comply with S3 bucket naming requirements.
+In additon, in order to create a more random name for the S3, the character count for the randomization was increased to 32 characters. 
+
 ## semantic versioning :mage:
 
 This project is going to utilize semantic versioning for its tagging
