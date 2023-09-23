@@ -21,3 +21,5 @@ if [ -f "$bash_profile" ]; then
 else
     echo "$bash_profile not found. You may need to create it and add the alias manually."
 fi
+
+source ~/.bash_profile
