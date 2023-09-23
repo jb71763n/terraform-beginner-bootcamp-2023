@@ -72,28 +72,6 @@ We decided to create a BASH script to install the Terraform CLI.
 - This will allow us an easier to debug and execute manually Terraform CLI install
 - This will allow better portability for other projects that need to install Terraform CLI
 
-#### Shebang
-
-A Shebang (pronounced Sha-bang) tells the bash script what program will interpret the script. eg. `#!/bin/bash`
-[how a Shebang works in Linux](https://en.wikipedia.org/wiki/Shebang_(Unix))
-
-ChatGPT recommended this format for bash: `#!/usr/bin/env bash`
-
-- for portability for different OS distributions
-- will search the user's path for the batch executable
-
-When executing the bash script we can use the `./` shorthand notation to execute the batch script.
-eg. `./bin/install_terraform_cli`
-
-If we are using a script in .gitpod.tml we need to point the script to a program to interpret it.
-
-eg. `source ./bin/install_terraform_cli`
-
-#### Considerations for permissions in Linux
-
-
-https://en.wikipedia.org/wiki/Chmod
-
 
 ### Github Lifecycle (Before, Init, Command)
 
@@ -101,38 +79,7 @@ We need to be careful when using the init because it will not rerun if we restar
 
 https://www.gitpod.io/docs/configure/workspaces/tasks
 
-### Working with Env Vars'
-
-We can list out all Environment variables using the `env` command
-
-We can filter specific env vars using grep eg. `env | grep AWS_`
-
-#### Setting and Unsetting Env Vars
-
-In the terminal we can set using `export HELLO='World'`
-In the terminal we can unset using `unset HELLO`
-
-We can set an env var temporarily when just running a command
-
-```
-HELLO='World' ./bin/print_message
-```
-Within a bash script we can set env without writing export eg,
-```sh
-#!/usr/bin/env bash
-HELLO='world'
-echo $HELLO
-```
-
-#### Printing Vars
-
-We can prtint an env var using echo eg. `echo $HELLO`
-
-#### Scoping of vars
-
-When you open up new bash terminal sessions in VSCode, it will not be aware of env vars thgat you have set in another window.
-
-If you want Env Vars to persist across all future bash terminals that are open, you need to set env vars in your baash profile eg `.bash_profile`
+## Gitpod Considerations
 
 #### persisting Env Vars in Gitpod
 
@@ -275,3 +222,78 @@ terraform {
 
 Connect the backend using 'terraform login' where you are required to supply a token (see Project Findings Issue 13 above). 
 Once connected to the backend, subsequent terraform actions (ie. init, plan, etc.) will place their data in the workspace provided in the 'cloud' code block.
+
+## Linux Shell Scripting Considerations
+
+### Aliases in BASH
+
+Bash aliases are essentially shortcuts that can save you from having to remember long commands and eliminate a great deal of typing when you are working on the command line. 
+
+**Creating BASH Aliases**
+```sh
+alias alias_name="command_to_run"
+```
+Example: alias ll="ls -la"
+
+Aliases to not persist after the session ends unless they are declared in the ~/.bash_profile or ~/.bashrc file.
+
+### Considerations for permissions in Linux
+
+Use the chmod command to adjust the permisions on linux files
+
+https://en.wikipedia.org/wiki/Chmod
+
+example: chmod u+x ./executablefilename
+
+### Shebang
+
+A Shebang (pronounced Sha-bang) tells the bash script what program will interpret the script. eg. `#!/bin/bash`
+[how a Shebang works in Linux](https://en.wikipedia.org/wiki/Shebang_(Unix))
+
+ChatGPT recommended this format for bash: `#!/usr/bin/env bash`
+
+- for portability for different OS distributions
+- will search the user's path for the batch executable
+
+When executing the bash script we can use the `./` shorthand notation to execute the batch script.
+eg. `./bin/install_terraform_cli`
+
+If we are using a script in .gitpod.tml we need to point the script to a program to interpret it.
+
+eg. `source ./bin/install_terraform_cli`
+
+### Working with Env Vars'
+
+We can list out all Environment variables using the `env` command
+
+We can filter specific env vars using grep eg. `env | grep AWS_`
+
+#### Setting and Unsetting Env Vars
+
+In the terminal we can set using `export HELLO='World'`
+In the terminal we can unset using `unset HELLO`
+
+We can set an env var temporarily when just running a command
+
+```
+HELLO='World' ./bin/print_message
+```
+Within a bash script we can set env without writing export eg,
+```sh
+#!/usr/bin/env bash
+HELLO='world'
+echo $HELLO
+```
+
+#### Printing Vars
+
+We can prtint an env var using echo eg. `echo $HELLO`
+
+#### Scoping of vars
+
+When you open up new bash terminal sessions in VSCode, it will not be aware of env vars thgat you have set in another window.
+
+If you want Env Vars to persist across all future bash terminals that are open, you need to set env vars in your baash profile eg `.bash_profile`
+
+
+
