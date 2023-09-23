@@ -9,6 +9,8 @@ In additon, in order to create a more random name for the S3, the character coun
 ### Issue 13
 There is an issue with creating the token to connect to the terraform.cloud environment within gitpod. You need to create the token [here](https://app.terraform.io/app/settings/tokens?source=terraform-login) and either add it when you exit out of the text editor that comes up as part of the 'terraform login' process or within the '/home/gitpod/.terraform.d/credentials.tfrc.json' file prior to running 'terraform init'
 
+Found that a variable set was needed in terraform.cloud with the environmental variables AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY, and AWS_DEFAULT_REGION in order for the AWS provider to not give an error when performing 'terraform plan' [Variable Set in Terraform.cloud](https://developer.hashicorp.com/terraform/tutorials/cloud-get-started/cloud-create-variable-set)
+
 [Terraform Credentials Storage](https://developer.hashicorp.com/terraform/cli/commands/login)
 
 ## semantic versioning :mage:
