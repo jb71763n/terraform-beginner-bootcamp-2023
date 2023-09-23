@@ -13,6 +13,10 @@ Found that a variable set was needed in terraform.cloud with the environmental v
 
 [Terraform Credentials Storage](https://developer.hashicorp.com/terraform/cli/commands/login)
 
+### Issue 15 (work around for terrafrom login issue in Issue 13)
+Added batch script generate_tfrc_credentals to bin folder and called it n gitpod.yml in order to have the credentals stored in the env var TERRAFORM_CLOUD_TOKEN be added to the credentials.tfrc.json file so 'terraform login' will not need to be done in every session.
+
+
 ## semantic versioning :mage:
 
 This project is going to utilize semantic versioning for its tagging
