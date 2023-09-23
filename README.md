@@ -2,9 +2,14 @@
 
 ## Project Findings
 
-### Isssue 11
+### Issue 11
 Found that the random provider needed to be set to lowercase and numeric only in order to comply with S3 bucket naming requirements.
 In additon, in order to create a more random name for the S3, the character count for the randomization was increased to 32 characters. 
+
+### Issue 13
+There is an issue with creating the token to connect to the terraform.cloud environment within gitpod. You need to create the token [here](https://app.terraform.io/app/settings/tokens?source=terraform-login) and either add it when you exit out of the text editor that comes up as part of the 'terraform login' process or within the '/home/gitpod/.terraform.d/credentials.tfrc.json' file prior to running 'terraform init'
+
+[Terraform Credentials Storage](https://developer.hashicorp.com/terraform/cli/commands/login)
 
 ## semantic versioning :mage:
 
@@ -227,4 +232,40 @@ terraform {
 }
 ```
 
+## Terraform Cloud Basics
 
+Terraform cloud backend uses a format where a **Project** may contain multiple **Workspaces**
+- **Project** : Terraform Cloud projects let you organize your workspaces into groups. You can structure your projects based on your organization's resource usage and ownership patterns, such as teams, business units, or services. [More Information](https://developer.hashicorp.com/terraform/tutorials/cloud/projects)
+- **Workspaces** : A workspace contains everything Terraform needs to manage a given collection of infrastructure, and separate workspaces function like completely separate working directories. [More Information](https://developer.hashicorp.com/terraform/cloud-docs/workspaces)
+
+### Terraform Cloud Backend 
+
+To add the terraform cloud backend, you must know the organization and workspace to store the data and it must be added to the 'terraform' code block in the main.tf file
+
+```hcl
+terraform {
+    # Add the Terraform Cloud backend
+    cloud {
+    organization = "orgname"
+
+    workspaces {
+      name = "workspacename"
+    }
+  }
+  required_providers {
+    # Add the Terraform Random Provider
+    random = {
+      source = "hashicorp/random"
+      version = "3.5.1"
+    }
+    aws = {
+      # Add the Terraform AWS Provider
+      source = "hashicorp/aws"
+      version = "5.17.0"
+    }
+  }
+}
+```
+
+Connect the backend using 'terraform login' where you are required to supply a token (see Project Findings Issue 13 above). 
+Once connected to the backend, subsequent terraform actions (ie. init, plan, etc.) will place their data in the workspace provided in the 'cloud' code block.
