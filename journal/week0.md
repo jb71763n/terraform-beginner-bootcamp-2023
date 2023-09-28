@@ -7,6 +7,7 @@
     + [Issue 11](#issue-11)
     + [Issue 13](#issue-13)
     + [Issue 15 (work around for terrafrom login issue in Issue 13)](#issue-15---work-around-for-terrafrom-login-issue-in-issue-13)
+    + [Issue 19 - create table of contents in readme.md](#issue-19-create-table-of-contents-for-readmemd)
   * [semantic versioning :mage:](#semantic-versioning--mage-)
   * [Install the Terraform CLI](#install-the-terraform-cli)
     + [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
@@ -50,7 +51,7 @@ Found that a variable set was needed in terraform.cloud with the environmental v
 ### Issue 15 - work around for terrafrom login issue in Issue 13
 Added batch script generate_tfrc_credentals to bin folder and called it n gitpod.yml in order to have the credentals stored in the env var TERRAFORM_CLOUD_TOKEN be added to the credentials.tfrc.json file so 'terraform login' will not need to be done in every session.
 
-### Issue 19 create table of contents for readme.md
+### Issue 19 create table of contents for readme\.md
 Used site https://ecotrust-canada.github.io/markdown-toc/ to generate table of contents for readme.md
 
 
