@@ -1,15 +1,36 @@
 # Terraform Beginner Bootcamp 2023
 
-## Table of Contents
-- [Project Issues](#project-issues)
-- [Semantic Versioning](#semantic-versioning-mage)
-- [Install the Terraform CLI](#install-the-terraform-cli)
-- [Install the AWS CLI](#install-the-aws-cli)
-- [Gitpod Considerations](#gitpod-considerations)
-- [Terraform Basics](#terraform-basics)
-- [Terraform Cloud Basics](#terraform-cloud-basics)
-- [Linux Shell Scripting Considerations](#linux-shell-scripting-considerations)
-
+- [Terraform Beginner Bootcamp 2023](#terraform-beginner-bootcamp-2023)
+  * [Project Issues](#project-issues)
+    + [Issue 11](#issue-11)
+    + [Issue 13](#issue-13)
+    + [Issue 15 (work around for terrafrom login issue in Issue 13)](#issue-15---work-around-for-terrafrom-login-issue-in-issue-13)
+  * [semantic versioning :mage:](#semantic-versioning--mage-)
+  * [Install the Terraform CLI](#install-the-terraform-cli)
+    + [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
+    + [Considerations for Linux Distribution](#considerations-for-linux-distribution)
+    + [Refactoring into BASH scripts](#refactoring-into-bash-scripts)
+  * [Install the AWS CLI](#install-the-aws-cli)
+  * [Gitpod Considerations](#gitpod-considerations)
+    + [persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+    + [Github Lifecycle : Before, Init, Command](#github-lifecycle---before--init--command)
+  * [Terraform Basics](#terraform-basics)
+    + [Terraform registry](#terraform-registry)
+      - [Providers](#providers)
+    + [Terraform Console](#terraform-console)
+    + [Terraform Lock Files](#terraform-lock-files)
+    + [Terraform State Files](#terraform-state-files)
+    + [Terraform Directory](#terraform-directory)
+  * [Terraform Cloud Basics](#terraform-cloud-basics)
+    + [Terraform Cloud Backend](#terraform-cloud-backend)
+  * [Linux Shell Scripting Considerations](#linux-shell-scripting-considerations)
+    + [Aliases in BASH](#aliases-in-bash)
+    + [Considerations for permissions in Linux](#considerations-for-permissions-in-linux)
+    + [Shebang](#shebang)
+    + [Working with Env Vars'](#working-with-env-vars-)
+      - [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
+      - [Printing Vars](#printing-vars)
+      - [Scoping of vars](#scoping-of-vars)
 
 ## Project Issues
 
@@ -24,8 +45,11 @@ Found that a variable set was needed in terraform.cloud with the environmental v
 
 [Terraform Credentials Storage](https://developer.hashicorp.com/terraform/cli/commands/login)
 
-### Issue 15 (work around for terrafrom login issue in Issue 13)
+### Issue 15 - work around for terrafrom login issue in Issue 13
 Added batch script generate_tfrc_credentals to bin folder and called it n gitpod.yml in order to have the credentals stored in the env var TERRAFORM_CLOUD_TOKEN be added to the credentials.tfrc.json file so 'terraform login' will not need to be done in every session.
+
+### Issue 19 create table of contents for readme.md
+Used site https://ecotrust-canada.github.io/markdown-toc/ to generate table of contents for readme.md
 
 
 ## semantic versioning :mage:
@@ -124,7 +148,7 @@ All future workspaces launched will set the env vars for all bash terminals open
 
 You can also set env vars in the `.gitpod.yml` but this can only contain non-sensitive env vars.
 
-### Github Lifecycle (Before, Init, Command)
+### Github Lifecycle : Before, Init, Command
 
 We need to be careful when using the init because it will not rerun if we restart an existing workspace.
 
