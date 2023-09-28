@@ -33,7 +33,14 @@ We can use the '-var' flag to sent an input variable or override a variablke in 
 
 ### var -file flag
 
-- TODO: research this flag
+Used to specify the file with the variables on the command line with -var-file. 
+
+```
+terraform apply -var-file="testing.tfvars"
+```
+
+This allows you to have multiple varable files for testing or for use in different environments
+
 
 ### terraform.tfvars
 
@@ -41,9 +48,16 @@ This is the default file to load in terraform variables in blunk
 
 ### auto.tfvars
 
-- TODO: document this functionality for terraform cloud
+Any files named with auto.tfvars or auto.tfvars.json will be automatically loaded to incorporate multiple variable files to the script.
 
 ### order of terraform variables
+If the same variable is assigned multiple values, Terraform uses the last value it finds, overriding any previous values. Note that the same variable cannot be assigned multiple values within a single source.
 
-- TODO: document which terraform variables take precident
+Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
+
+   - Environment variables
+   - The terraform.tfvars file, if present.
+   - The terraform.tfvars.json file, if present.
+   - Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
+   - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
 
