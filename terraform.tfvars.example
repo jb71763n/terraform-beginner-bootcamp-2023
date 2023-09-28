@@ -1,0 +1,2 @@
+# used to copy variables to the terraform.tfvars local file
+user_uuid = "ea0e39b4-1a37-4967-8053-122a620913ef"

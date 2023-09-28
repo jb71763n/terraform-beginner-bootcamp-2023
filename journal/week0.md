@@ -170,6 +170,7 @@ Terraform sources their providers and modules from the Terraform registry which 
 
 Terraform registry providers are located at: registry.terraform.io
 
+- [Terraform Provider Registry](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
 - [Random Provider Documentation](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
 - [AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
