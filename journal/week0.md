@@ -16,7 +16,7 @@
   * [Install the AWS CLI](#install-the-aws-cli)
   * [Gitpod Considerations](#gitpod-considerations)
     + [persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
-    + [Github Lifecycle : Before, Init, Command](#github-lifecycle---before--init--command)
+    + [Github Lifecycle Before-Init-Command](#github-lifecycle-before-init-command)
   * [Terraform Basics](#terraform-basics)
     + [Terraform registry](#terraform-registry)
       - [Providers](#providers)
@@ -151,7 +151,7 @@ All future workspaces launched will set the env vars for all bash terminals open
 
 You can also set env vars in the `.gitpod.yml` but this can only contain non-sensitive env vars.
 
-### Github Lifecycle : Before, Init, Command
+### Github Lifecycle Before-Init-Command
 
 We need to be careful when using the init because it will not rerun if we restart an existing workspace.
 
