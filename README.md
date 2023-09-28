@@ -1,6 +1,17 @@
 # Terraform Beginner Bootcamp 2023
 
-## Project Findings
+## Table of Contents
+- [Project Issues](#project-issues)
+- [Semantic Versioning](#semantic-versioning-mage)
+- [Install the Terraform CLI](#install-the-terraform-cli)
+- [Install the AWS CLI](#install-the-aws-cli)
+- [Gitpod Considerations](#gitpod-considerations)
+- [Terraform Basics](#terraform-basics)
+- [Terraform Cloud Basics](#terraform-cloud-basics)
+- [Linux Shell Scripting Considerations](#linux-shell-scripting-considerations)
+
+
+## Project Issues
 
 ### Issue 11
 Found that the random provider needed to be set to lowercase and numeric only in order to comply with S3 bucket naming requirements.
@@ -72,28 +83,7 @@ We decided to create a BASH script to install the Terraform CLI.
 - This will allow us an easier to debug and execute manually Terraform CLI install
 - This will allow better portability for other projects that need to install Terraform CLI
 
-
-### Github Lifecycle (Before, Init, Command)
-
-We need to be careful when using the init because it will not rerun if we restart an existing workspace.
-
-https://www.gitpod.io/docs/configure/workspaces/tasks
-
-## Gitpod Considerations
-
-#### persisting Env Vars in Gitpod
-
-We can persist env vars into gitpod by storing them in Gitpod Secret Storage
-
-```
-gp env HELLO='world'
-```
-
-All future workspaces launched will set the env vars for all bash terminals opened in those workspaces
-
-You can also set env vars in the `.gitpod.yml` but this can only contain non-sensitive env vars.
-
-### AWS CLI Installation
+## Install the AWS CLI
 
 AWS CLI is installed for thwe project via the bash script [`./bin/install_AWS_cli`](./bin/install_AWS_cli)
 
@@ -117,6 +107,29 @@ We'll need to generate AWS CLI credentials IAM user in order to use the AWS CLI
 
 - [Getting Started with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html)
 - [Managing Access Keys in the IAM Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
+
+
+
+## Gitpod Considerations
+
+### persisting Env Vars in Gitpod
+
+We can persist env vars into gitpod by storing them in Gitpod Secret Storage
+
+```
+gp env HELLO='world'
+```
+
+All future workspaces launched will set the env vars for all bash terminals opened in those workspaces
+
+You can also set env vars in the `.gitpod.yml` but this can only contain non-sensitive env vars.
+
+### Github Lifecycle (Before, Init, Command)
+
+We need to be careful when using the init because it will not rerun if we restart an existing workspace.
+
+https://www.gitpod.io/docs/configure/workspaces/tasks
+
 
 ## Terraform Basics
 
