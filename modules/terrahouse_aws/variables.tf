@@ -18,3 +18,22 @@ variable "bucket_name" {
     error_message = "bucket_name must be a valid AWS S3 bucket name (3-63 characters, letters, numbers, hyphens, and periods allowed)"
   }
 }
+variable "index_html_filepath" {
+  description = "The file path for index.html"
+  type        = string
+
+  validation {
+    condition     = fileexists(var.index_html_filepath)
+    error_message = "The provided path for index.html does not exist."
+  }
+}
+
+variable "error_html_filepath" {
+  description = "The file path for error.html"
+  type        = string
+
+  validation {
+    condition     = fileexists(var.error_html_filepath)
+    error_message = "The provided path for error.html does not exist."
+  }
+}
