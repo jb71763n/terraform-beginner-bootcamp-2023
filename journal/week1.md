@@ -1,5 +1,29 @@
 # terraform beginner bootcamp 2023 - week 1
 
+## Fixing Tags
+
+[How to Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+Locall delete a tag
+```sh
+git tag -d <tag_name>
+```
+
+Remotely delete tag
+
+```sh
+git push --delete origin tagname
+```
+
+Checkout the commit that you want to retag. Grab the sha from your Github history.
+
+```sh
+git checkout <SHA>
+git tag M.M.P
+git push --tags
+git checkout main
+```
+
 ## Root Module Structure
 
 Our root module structure is as follows:
@@ -60,6 +84,21 @@ Terraform loads variables in the following order, with later sources taking prec
    - The terraform.tfvars.json file, if present.
    - Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
    - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
+
+### Floor function
+
+[Floor function](https://developer.hashicorp.com/terraform/language/functions/floor)
+
+The floor function returns the closest whole number that is less than or equal to the given value, which may be a fraction.
+
+example:
+```
+> floor(5)
+5
+> floor(4.9)
+4
+
+```
 
 
 ## Terraform Import
@@ -210,3 +249,15 @@ We use the jsonencode to create the json policy inline in the hcl.
 ```
 
 [jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+## Changing the lifecycle of resources
+
+[Resource Lifecycle](https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle)
+
+[Meta-Arguments Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+## Terraform Data
+
+Plain data values such as Local Values and Input Variables don't have any side-effects to plan against and so they aren't valid in replace_triggered_by. You can use terraform_data's behavior of planning an action each time input changes to indirectly use a plain value to trigger replacement.
+
+https://developer.hashicorp.com/terraform/language/resources/terraform-data
