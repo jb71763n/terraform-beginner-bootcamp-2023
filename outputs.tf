@@ -6,3 +6,7 @@ output "website_endpoint" {
     description = "bucket endpoint for static website hosting"
     value = module.terrahouse_aws.website_endpoint
 }
+output "cloudfront_url" {
+  description = "The CloudFront Distribution Domain Name"
+  value = module.terrahouse_aws.cloudfront_url
+}
