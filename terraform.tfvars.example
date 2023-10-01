@@ -4,3 +4,4 @@ bucket_name="alfsiht32oa8eew7385v5z5f0hu5c93h"
 index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
 error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
 content_version=3
+assets_path="/workspace/workspace/terraform-beginner-bootcamp-2023/public/assets"
