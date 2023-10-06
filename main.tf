@@ -5,20 +5,14 @@ terraform {
       version = "1.0.0"
     }
   }
-  #backend "remote" {
-  #  hostname = "app.terraform.io"
-  #  organization = "ExamPro"
+    # Add the Terraform Cloud backend
+    cloud {
+    organization = "jb71763n-3c6553"
 
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
-  #cloud {
-  #  organization = "ExamPro"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+    workspaces {
+      name = "terra-house"
+    }
+  }
 
 }
 provider "terratowns" {
@@ -26,14 +20,11 @@ provider "terratowns" {
   user_uuid = var.teacherseat_user_uuid
   token = var.terratowns_access_token
 }
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
+module "home_coffee_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  #bucket_name = var.bucket_name
-  error_html_filepath = var.error_html_filepath
-  index_html_filepath = var.index_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.coffee.public_path
+  content_version = var.coffee.content_version
 }
 
 resource "terratowns_home" "home" {
@@ -43,7 +34,24 @@ Coffee is one of the most popular drinks in the world.
 Millons of people can't start the day without it. This is my guide that will
 show you the best ways to brew coffee.
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.home_coffee_hosting.domain_name
   town = "cooker-cove"
-  content_version = 1
+  content_version = var.coffee.content_version
+}
+
+module "home_blues_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.blues.public_path
+  content_version = var.blues.content_version
+}
+resource "terratowns_home" "home" {
+  name = "Home of Blues"
+  description = <<DESCRIPTION
+Blues is a music genre and musical form that originated in the Deep South of the United States around the 1860s. 
+Early recordings by artists like Blind Lemon Jefferson, Charlie Patton, Robert Johnson and other artists of the 1920-1930s were collected by John Avery Lomax, Alan Lomax, and Ruby Terrill Lomax, between 1934 and ca. 1950 and now comprise the Archive of American Folk-Song. This is my guide to the world of early Blues music.
+DESCRIPTION
+  domain_name = module.home_blues_hosting.domain_name
+  town = "melomaniac-mansion"
+  content_version = var.blues.content_version
 }
