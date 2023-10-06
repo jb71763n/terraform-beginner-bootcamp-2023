@@ -1,7 +1,6 @@
 # used to copy variables to the terraform.tfvars local file
-user_uuid = "ea0e39b4-1a37-4967-8053-122a620913ef"
-bucket_name="alfsiht32oa8eew7385v5z5f0hu5c93h"
+terratowns_endpoint = "https://terratowns.cloud/api"
 index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
 error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-content_version=3
-assets_path="/workspace/workspace/terraform-beginner-bootcamp-2023/public/assets"
+content_version=1
+assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
