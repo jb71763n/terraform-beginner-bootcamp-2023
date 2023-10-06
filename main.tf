@@ -37,3 +37,16 @@ module "terrahouse_aws" {
   content_version = var.content_version
   assets_path = var.assets_path
 }
+
+resource "terratowns_home" "home" {
+  name = "Coffee for All 2023!"
+  description = <<DESCRIPTION
+Coffee is one of the most popular drinks in the world. 
+Millons of people can't start the day without it. This is my guide that will
+show you the best ways to brew coffee.
+DESCRIPTION
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "cooker-cove"
+  content_version = 1
+}
