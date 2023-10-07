@@ -1,6 +1,10 @@
 # used to copy variables to the terraform.tfvars local file
-terratowns_endpoint = "https://terratowns.cloud/api"
-index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-content_version=1
-assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets/"
+terratowns_endpoint="https://terratowns.cloud/api"
+coffee = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/coffee"
+  content_version = 1 
+}
+blues = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/blues"
+  content_version = 1 
+}
