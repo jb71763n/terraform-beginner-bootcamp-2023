@@ -10,5 +10,5 @@ output "s3_website_endpoint" {
 
 output "cloudfront_url" {
   description = "The CloudFront Distribution Domain Name"
-  value = module.home_coffee_hosting.domain_name
+  value = module.home_coffee_hosting.cloudfront_url
 }

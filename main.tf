@@ -27,14 +27,14 @@ module "home_coffee_hosting" {
   content_version = var.coffee.content_version
 }
 
-resource "terratowns_home" "home" {
+resource "terratowns_home" "home_coffee" {
   name = "Coffee for All 2023!"
   description = <<DESCRIPTION
 Coffee is one of the most popular drinks in the world. 
 Millons of people can't start the day without it. This is my guide that will
 show you the best ways to brew coffee.
 DESCRIPTION
-  domain_name = module.home_coffee_hosting.domain_name
+  domain_name = module.home_coffee_hosting.cloudfront_url
   town = "cooker-cove"
   content_version = var.coffee.content_version
 }
@@ -45,13 +45,14 @@ module "home_blues_hosting" {
   public_path = var.blues.public_path
   content_version = var.blues.content_version
 }
-resource "terratowns_home" "home" {
+
+resource "terratowns_home" "home_blues" {
   name = "Home of Blues"
   description = <<DESCRIPTION
 Blues is a music genre and musical form that originated in the Deep South of the United States around the 1860s. 
 Early recordings by artists like Blind Lemon Jefferson, Charlie Patton, Robert Johnson and other artists of the 1920-1930s were collected by John Avery Lomax, Alan Lomax, and Ruby Terrill Lomax, between 1934 and ca. 1950 and now comprise the Archive of American Folk-Song. This is my guide to the world of early Blues music.
 DESCRIPTION
-  domain_name = module.home_blues_hosting.domain_name
+  domain_name = module.home_blues_hosting.cloudfront_url
   town = "melomaniac-mansion"
   content_version = var.blues.content_version
 }
