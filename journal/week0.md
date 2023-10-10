@@ -33,6 +33,7 @@
       - [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
       - [Printing Vars](#printing-vars)
       - [Scoping of vars](#scoping-of-vars)
+    + [Security_Considerations](#Security-considerations)
 
 ## Project Issues
 
@@ -369,6 +370,10 @@ Tip 1: When connecting from Terraform Cloud to your Github account, you may want
 ![Terraform Cloud Config 1](../Assets/tfcloudconfig1.png)
 
 This is in alignment with least privilege security principles
+
+Users:
+You should use the owner permissions sparingly 
+
 
 
 
