@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .container {
+        display: grid;
+        align-items: center; 
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 5px;
+        }
+
+        img {
+        max-width: 100%;
+        max-height:100%;
+        }
+
+        .text {
+        font-size: 20px;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee is Life</title>
@@ -13,15 +30,23 @@
     height="400">
     <section>
         <h2>A Brief History of Coffee</h2>
-        <div><img src="./assets/ethiopiancoffeeceremony.jpeg" width="300" height="400"></div>
-        <div><p>The legend of coffee's discovery dates back to 9th-century Ethiopia, where a goat herder named Kaldi noticed that his goats became more energetic after eating the berries from a certain tree. Curious, Kaldi tried the berries himself and experienced a similar burst of energy.</p></div>
-        <div><img src="./assets/qahveh-khaneh.jpeg" width="300" height="400"></div>
-        <div><p>Coffee cultivation and consumption spread to the Arab world in the 15th century. Coffee was initially known as "qahwa" in Arabic, and it became an integral part of the culture. Coffeehouses, called "qahveh khaneh,"  began to emerge in cities like Constantinople (modern-day Istanbul), where people gathered to enjoy coffee and engage in intellectual discussions.</p></div>
-        <div><img src="./assets/venicecs.png" width="300" height="400"></div>
-        <div><p>Coffee made its way to Europe in the 17th century, with the first coffeehouse opening in Venice in 1645. Coffeehouses quickly became popular gathering places for socializing, discussing politics, and conducting business. They were sometimes referred to as "penny universities" because of the wealth of knowledge one could acquire through conversations in these establishments.</p></div>
-        <div><img src="./assets/Fazenda_Da_Lagoa.jpeg" width="300" height="400"></div>
-        <div><p>Coffee was introduced to the Americas in the 17th century. The Dutch planted coffee on the island of Java (Indonesia) in the 1600s, and from there, it spread to the Caribbean, Central America, and South America. Brazil would later become one of the world's largest coffee producers.</p></div>
-        <p>
+        <div class="container">
+            <div class="image"><img src="./assets/ethiopiancoffeeceremony.jpeg" width="300" height="400"></div>
+            <div class="text">The legend of coffee's discovery dates back to 9th-century Ethiopia, where a goat herder named Kaldi noticed that his goats became more energetic after eating the berries from a certain tree. Curious, Kaldi tried the berries himself and experienced a similar burst of energy.</div>
+        </div>
+        <div class="container">
+            <div class="text">Coffee cultivation and consumption spread to the Arab world in the 15th century. Coffee was initially known as "qahwa" in Arabic, and it became an integral part of the culture. Coffeehouses, called "qahveh khaneh,"  began to emerge in cities like Constantinople (modern-day Istanbul), where people gathered to enjoy coffee and engage in intellectual discussions.</div>
+            <div class="image"><img src="./assets/qahveh-khaneh.jpeg" width="300" height="400"></div>
+        </div>
+        <div class="container">   
+            <div class="image"><img src="./assets/venicecs.png" width="300" height="400"></div>
+            <div class="text">Coffee made its way to Europe in the 17th century, with the first coffeehouse opening in Venice in 1645. Coffeehouses quickly became popular gathering places for socializing, discussing politics, and conducting business. They were sometimes referred to as "penny universities" because of the wealth of knowledge one could acquire through conversations in these establishments.</div>
+        </div> 
+        <div class="container">  
+            <div class="text">Coffee was introduced to the Americas in the 17th century. The Dutch planted coffee on the island of Java (Indonesia) in the 1600s, and from there, it spread to the Caribbean, Central America, and South America. Brazil would later become one of the world's largest coffee producers.</div>
+            <div class="image"><img src="./assets/Fazenda_Da_Lagoa.jpeg" width="300" height="400"></div>
+        </div>  
+            <p>
             Coffee cultivation expanded rapidly in countries like Brazil, Colombia, and Vietnam during the 18th and 19th centuries. Large coffee plantations became a significant part of the global coffee industry, leading to the establishment of coffee trade networks and the emergence of coffee as a major commodity.
         </p>
         <p>
