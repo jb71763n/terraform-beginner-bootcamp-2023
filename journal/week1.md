@@ -327,3 +327,39 @@ This is mostly useful when you are creating multiples of a cloud resource and yo
 [For Each Expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
 
 ## Security Considerations
+
+### Secret Management
+
+#### Secret management challenges
+- Hard-coded secrets in files
+- State files information
+- Variable Files
+- Provider/Environment variables
+
+#### Terraform Cloud - Security Best Practices
+- Sensitive Data - Secure State Files in Terraform Cloud
+   * Local Files/VCS still declare variable
+   * Variable
+   * Provider/Environment variables
+
+ - Access to sensitive data in Terraform Cloud
+   * Run can be managed by specific users
+  
+- Secrets management using cloud native or other services
+   * AWS Secret Manager
+   * Azure Key Vault
+   * Google Secret manager
+   * Hashicorp Vault
+ 
+- User access to Secrets
+   * Run can be managed by specific users
+   * Granular access
+ 
+Outputs can be declared sensitve 
+
+#### Encryption
+
+Encryption can use cloud native sources 
+- AWS Key Management Services (KMS)
+- Encryption locally protects sensitive files
+
