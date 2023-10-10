@@ -334,3 +334,42 @@ We can prtint an env var using echo eg. `echo $HELLO`
 When you open up new bash terminal sessions in VSCode, it will not be aware of env vars thgat you have set in another window.
 
 If you want Env Vars to persist across all future bash terminals that are open, you need to set env vars in your baash profile eg `.bash_profile`
+
+## Security Considerations
+
+Setup Terraform Cloud - Apply Security Best Practices
+
+Terraform Workflow:
+- Write
+  * Define Infrastructure in config files
+- Plan
+  * Review changes Terraform will make to your Infrastructure
+- Apply
+  * Terraform provisions your infrastructure and updates the state file
+
+Shared Risks
+- Unauthorized access
+- Data breaches
+- Injection attacks
+- Malware
+- Misconfigured Access Control
+- Insider threats
+
+Security Challenges With Terraform Cloud:
+- User Management
+- Permisison & Access Management
+- State Management across Workspaces
+- Auto-Deploy is a double edged swaord
+- Github
+- Source of Terraform Modules
+- Secret Management
+
+Tip 1: When connecting from Terraform Cloud to your Github account, you may want to set the connection to 'only select repositories' unless there is a reason to allow access to all repos.
+
+![Terraform Cloud Config 1](../Assets/tfcloudconfig1.png)
+
+This is in alignment with least privilege security principles
+
+
+
+
