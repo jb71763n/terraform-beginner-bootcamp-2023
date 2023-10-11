@@ -2,7 +2,7 @@
 terratowns_endpoint="https://terratowns.cloud/api"
 coffee = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/coffee"
-  content_version = 14 
+  content_version = 17 
 }
 blues = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/blues"
